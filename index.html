@@ -60,6 +60,7 @@ h2{font-size:clamp(2.2rem,5vw,3rem)}
 .sheet p{margin:0 0 14px;max-width:40rem}
 .sheet ul{margin:0 0 16px;padding-left:1.2em}
 .big{font:700 1.75rem/1.1 var(--hand);color:var(--ink)}
+.demo{margin:0 0 18px}.demo video{width:100%;aspect-ratio:16/9;display:block;background:var(--screen);border-radius:3px}.demo figcaption{font-size:.875rem;line-height:1.45;color:var(--ink-soft);margin-top:8px}
 
 form{display:grid;gap:14px;margin-top:8px}
 .two{display:grid;gap:14px;grid-template-columns:1fr}
@@ -118,6 +119,10 @@ footer p{margin:0;max-width:44rem}
           <li>Только имена, без фамилий и фото. Ссылку получаете только вы, в открытом каталоге мультика не будет.</li>
           <li>Язык на выбор: казахский, русский или английский.</li>
         </ul>
+        <figure class="demo">
+          <video src="v/klass.mp4" poster="v/klass.jpg" controls playsinline preload="none"></video>
+          <figcaption>Пример: 2 «Б», школа №44, Уральск, 2:50. Класс и дети придуманы для примера, ваш мультик будет про ваш класс.</figcaption>
+        </figure>
         <form id="brief" novalidate>
           <div class="two">
             <label>Как вас зовут дети<input type="text" name="teacher" placeholder="Айгуль апай" required autocomplete="off"></label>
