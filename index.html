@@ -148,6 +148,18 @@ footer p{margin:0;max-width:44rem}
         </form>
       </div>
 
+      <div class="sheet" id="newyear">
+        <h2>Новогодний мультик про класс</h2>
+        <p>Для родительского комитета. Аяз Ата приходит к лесным героям на ёлку и дарит подарок каждому ребёнку класса: зовёт по имени и говорит, чем он хорош.</p>
+        <figure class="demo">
+          <video src="v/ny.mp4" poster="v/ny.jpg" controls playsinline preload="none"></video>
+          <figcaption>Пример: 2 «Б», школа №44, Уральск, 2:46. Класс и дети придуманы для примера.</figcaption>
+        </figure>
+        <p class="big">29 900 ₸ за весь класс · на казахском или русском</p>
+        <p class="note">Это около 1 000 ₸ с семьи. Готовим за 3–5 дней, до праздника успеваем, если написать до 20 декабря.</p>
+        <a class="btn" id="orderny" href="#" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+      </div>
+
       <div class="sheet" id="imennoy">
         <h2>Мультик, где ваш ребёнок — главный герой</h2>
         <p>Для родителей. Герои зовут ребёнка по имени, вся история про него: первый день в садике, чистим зубы, родился братик, не боимся врача, день рождения, Новый год.</p>
@@ -223,6 +235,7 @@ form.addEventListener('submit',e=>{
   window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank','noopener');
 });
 form.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid',false)});
+document.getElementById('orderny').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Здравствуйте! Хотим новогодний мультик про класс. Город, школа, класс: ');
 document.getElementById('order').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Здравствуйте! Хочу мультик, где мой ребёнок — главный герой. Имя ребёнка: ');
 </script>
 </body>
