@@ -60,7 +60,7 @@ h2{font-size:clamp(2.2rem,5vw,3rem)}
 .sheet p{margin:0 0 14px;max-width:40rem}
 .sheet ul{margin:0 0 16px;padding-left:1.2em}
 .big{font:700 1.75rem/1.1 var(--hand);color:var(--ink)}
-.demo{margin:0 0 18px}.demo video{width:100%;aspect-ratio:16/9;display:block;background:var(--screen);border-radius:3px}.demo figcaption{font-size:.875rem;line-height:1.45;color:var(--ink-soft);margin-top:8px}
+.demo{margin:0 0 18px}.lang{display:flex;gap:8px;margin:0 0 8px}.lang button{font:600 .9375rem/1 var(--sans);color:var(--ink);background:transparent;border:1.5px solid var(--ink);border-radius:3px;padding:8px 12px;cursor:pointer}.lang button[aria-pressed=true]{background:var(--ink);color:#fff}.demo video{width:100%;aspect-ratio:16/9;display:block;background:var(--screen);border-radius:3px}.demo figcaption{font-size:.875rem;line-height:1.45;color:var(--ink-soft);margin-top:8px}
 
 form{display:grid;gap:14px;margin-top:8px}
 .two{display:grid;gap:14px;grid-template-columns:1fr}
@@ -120,8 +120,9 @@ footer p{margin:0;max-width:44rem}
           <li>Язык на выбор: казахский, русский или английский.</li>
         </ul>
         <figure class="demo">
+          <div class="lang"><button type="button" aria-pressed="true" data-v="klass">Русский</button><button type="button" aria-pressed="false" data-v="klass_kk">Қазақша</button></div>
           <video src="v/klass.mp4" poster="v/klass.jpg" controls playsinline preload="none"></video>
-          <figcaption>Пример: 2 «Б», школа №44, Уральск, 2:50. Класс и дети придуманы для примера, ваш мультик будет про ваш класс.</figcaption>
+          <figcaption>Пример: 2 «Б», школа №44, Уральск. Класс и дети придуманы для примера, ваш мультик будет про ваш класс.</figcaption>
         </figure>
         <form id="brief" novalidate>
           <div class="two">
@@ -152,8 +153,9 @@ footer p{margin:0;max-width:44rem}
         <h2>Новогодний мультик про класс</h2>
         <p>Для родительского комитета. Аяз Ата приходит к лесным героям на ёлку и дарит подарок каждому ребёнку класса: зовёт по имени и говорит, чем он хорош.</p>
         <figure class="demo">
+          <div class="lang"><button type="button" aria-pressed="true" data-v="ny">Русский</button><button type="button" aria-pressed="false" data-v="ny_kk">Қазақша</button></div>
           <video src="v/ny.mp4" poster="v/ny.jpg" controls playsinline preload="none"></video>
-          <figcaption>Пример: 2 «Б», школа №44, Уральск, 2:46. Класс и дети придуманы для примера.</figcaption>
+          <figcaption>Пример: 2 «Б», школа №44, Уральск. Класс и дети придуманы для примера.</figcaption>
         </figure>
         <p class="big">29 900 ₸ за весь класс · на казахском или русском</p>
         <p class="note">Это около 1 000 ₸ с семьи. Готовим за 3–5 дней, до праздника успеваем, если написать до 20 декабря.</p>
@@ -235,6 +237,11 @@ form.addEventListener('submit',e=>{
   window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank','noopener');
 });
 form.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid',false)});
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{
+  const f=b.closest('.demo'),v=f.querySelector('video');
+  f.querySelectorAll('.lang button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  v.pause();v.src='v/'+b.dataset.v+'.mp4';v.poster='v/'+b.dataset.v+'.jpg';
+}));
 document.getElementById('orderny').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Здравствуйте! Хотим новогодний мультик про класс. Город, школа, класс: ');
 document.getElementById('order').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Здравствуйте! Хочу мультик, где мой ребёнок — главный герой. Имя ребёнка: ');
 </script>
